@@ -1,1 +1,1 @@
-# Feature-Based-Image-Metamorphosis
+# Mesh Simplifier
