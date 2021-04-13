@@ -12,6 +12,7 @@ SRCS := $(wildcard ./*.cpp)
 OBJS := $(SRCS:.cpp=.o)
 MAIN := Morph
 JAVAFILE := Editor.class
+SEGFILE := SegFile.txt
 
 .PHONY: depend clean
 
@@ -28,7 +29,7 @@ $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(RM) $(JAVAFILE) $(OBJS) *~ $(MAIN)
+	$(RM) $(JAVAFILE) $(SEGFILE) $(OBJS) *~ $(MAIN)
 
 depend: $(SRCS)
 	gcc -M $(INCLUDES) $^

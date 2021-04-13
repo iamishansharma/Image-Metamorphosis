@@ -251,6 +251,8 @@ public class Editor extends JPanel implements MouseListener, MouseMotionListener
         editor.setSize(width, height);
         f.setSize(width + HPAD, height + VPAD);
         f.add(editor);
+        JOptionPane.showMessageDialog(null,
+                "You will be presented with two images.\nPlease draw line segements using mouse\ndrag to highlight the features of faces.\nOnce completed just close the window.");
 
         // Run interactive interface
         f.setLocation(0, 0);
