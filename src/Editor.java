@@ -8,46 +8,32 @@ import javax.imageio.*;
 import javax.swing.*;
 
 public class Editor extends JPanel implements MouseListener, MouseMotionListener {
-    // Constants parameters
     private static final int HPAD = 40;
     private static final int VPAD = 40;
     private static final int HSEP = 25;
-
-    // Command-line program arguments
     private String input_source_image_name;
     private String input_target_image_name;
     private String input_correspondence_name;
     private String output_correspondence_name;
     private boolean print_verbose = false;
-
-    // Data variables
     private BufferedImage source_image;
     private BufferedImage target_image;
     private Vector<Line2D.Double> segments = new Vector<Line2D.Double>();
     private Point current_start, current_end;
 
     public Editor(String[] args) {
-        // Parse program arguments
         if (!parseArgs(args))
             System.exit(-1);
-
-        // Read source image
         source_image = loadImage(input_source_image_name);
         if (source_image == null)
             System.exit(-1);
-
-        // Read target image
         target_image = loadImage(input_target_image_name);
         if (target_image == null)
             System.exit(-1);
-
-        // Read segments
         if (input_correspondence_name != null && input_correspondence_name.length() > 0) {
             if (!loadCorrespondences(input_correspondence_name, source_image, target_image, segments))
                 System.exit(-1);
         }
-
-        // Calbacks
         addMouseListener(this);
         addMouseMotionListener(this);
     }
@@ -162,10 +148,6 @@ public class Editor extends JPanel implements MouseListener, MouseMotionListener
     public void mouseExited(MouseEvent e) {
     }
 
-    ////////////////////////////////////////////////////////////////////////
-    // Drawing
-    ////////////////////////////////////////////////////////////////////////
-
     private void drawSegment(Line2D.Double seg, Graphics g, int xoffset) {
         ((Graphics2D) g).setStroke(new BasicStroke(5));
         g.drawLine((int) seg.x1 + xoffset, (int) seg.y1, (int) seg.x2 + xoffset, (int) seg.y2);
@@ -236,28 +218,22 @@ public class Editor extends JPanel implements MouseListener, MouseMotionListener
             System.err.println(
                     "\nIncorrect CMD Arguments! Usage is: java Editor input_source_image input_target_image output_correspondence_file_name\n\nExample: java Editor BushObama0.0.png BushObama1.0.png Result.txt\n");
 
-        // Return OK status
         return true;
     }
 
     public static void main(String[] args) {
-        // Create window
         JFrame f = new JFrame("Image Feature Editor");
-
-        // Create a new editor
         Editor editor = new Editor(args);
         int width = editor.source_image.getWidth() + editor.target_image.getWidth();
         int height = Math.max(editor.source_image.getHeight(), editor.target_image.getHeight());
         editor.setSize(width, height);
         f.setSize(width + HPAD, height + VPAD);
         f.add(editor);
-        JOptionPane.showMessageDialog(null,
-                "You will be presented with two images.\nPlease draw line segements using mouse\ndrag to highlight the features of faces.\nOnce completed just close the window.");
-
-        // Run interactive interface
         f.setLocation(0, 0);
         f.setResizable(false);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JOptionPane.showMessageDialog(null,
+                "You will be presented with two images.\nPlease draw line segements using mouse\ndrag to highlight the features of faces.\nOnce completed just close the window.");
     }
 }

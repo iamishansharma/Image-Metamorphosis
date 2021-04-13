@@ -126,17 +126,6 @@ Image blendImages(Image const &img1, Image const &img2, double t)
   return result;
 }
 
-Image morphImages(Image const &img1, Image const &img2, std::vector<LineSegment> const &seg1, std::vector<LineSegment> const &seg2, double t, double a, double b, double p)
-{
-  assert(img1.hasSameDimsAs(img2));
-
-  Image distorted1 = distortImage(img1, seg1, seg2, t, a, b, p);
-  Image distorted2 = distortImage(img2, seg2, seg1, 1 - t, a, b, p);
-  Image final = blendImages(distorted1, distorted2, 1 - t);
-
-  return final;
-}
-
 bool loadSegments(std::string const &path, std::vector<LineSegment> &seg1, std::vector<LineSegment> &seg2)
 {
   std::ifstream in(path.c_str());
@@ -182,6 +171,17 @@ bool loadSegments(std::string const &path, std::vector<LineSegment> &seg1, std::
   assert(seg1.size() == seg2.size());
 
   return (long)seg1.size() == num_segs;
+}
+
+Image morphImages(Image const &img1, Image const &img2, std::vector<LineSegment> const &seg1, std::vector<LineSegment> const &seg2, double t, double a, double b, double p)
+{
+  assert(img1.hasSameDimsAs(img2));
+
+  Image distorted1 = distortImage(img1, seg1, seg2, t, a, b, p);
+  Image distorted2 = distortImage(img2, seg2, seg1, 1 - t, a, b, p);
+  Image final = blendImages(distorted1, distorted2, 1 - t);
+
+  return final;
 }
 
 bool morphMain(std::string const &img1_path, std::string const &img2_path, std::string const &seg_path, double t, std::string const &out_path, double a, double b, double p)

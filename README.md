@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-The script is intended for Linux machines only.
+The script is intended for Mac(Unix) / Linux machines only.
 
 The following dependencies are required for the program:
 
@@ -10,7 +10,7 @@ The following dependencies are required for the program:
 2. Java (Required)
 
 See here on how to download and install C/C++ : [Install C/C++](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)
-See here on how to download and install Java : [Install Java](https://java.com/en/download/)
+See here on how to download and install Java : [Install Java](https://www.oracle.com/in/java/technologies/javase-downloads.html)
 
 ## View Demo Video
 
