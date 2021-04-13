@@ -9,3 +9,4 @@ read Image2
 
 #echo $SegFile
 javac Editor.java && java Editor $Image1 $Image2 $SegFile
+./Morph $Image1 $Image2 $SegFile

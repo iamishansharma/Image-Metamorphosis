@@ -10,7 +10,7 @@ LFLAGS :=
 LIBS :=
 SRCS := $(wildcard ./*.cpp)
 OBJS := $(SRCS:.cpp=.o)
-MAIN := morph
+MAIN := Morph
 JAVAFILE := Editor.class
 
 .PHONY: depend clean
