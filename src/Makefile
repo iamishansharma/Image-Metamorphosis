@@ -30,6 +30,7 @@ $(MAIN): $(OBJS)
 
 clean:
 	$(RM) $(JAVAFILE) $(SEGFILE) $(OBJS) *~ $(MAIN)
+	rm -rf ./Results
 
 depend: $(SRCS)
 	gcc -M $(INCLUDES) $^

@@ -23,6 +23,10 @@ Please find attached here [LINK](https://drive.google.com/file/d/1hVlE3J7RVUOlWD
 
 ## How to Complie the code ?
 
+The code has been precompiled for Linux systems, you can skip compiling and directly run step 2 in Execution.
+
+If it fails to run, then compile it again please.
+
 1. Open Terminal and change directory to this `src` folder.
 2. Run command `chmod u+r+x Morph.sh` (enter password if necessary) to enable usage to shell script.
 3. Now run the command `make clean` to remove any already generated object files.
