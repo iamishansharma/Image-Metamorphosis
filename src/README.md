@@ -1,5 +1,10 @@
 # Image Metamorphosis
 
+## Languages Used
+
+1. C++ (Special stb_image library files used for image handling)
+2. Java (Java Swing GUI used for editor)
+
 ## Dependencies
 
 The script is intended for Mac(Unix) / Linux machines only.
@@ -27,8 +32,8 @@ Please find attached here [LINK](https://drive.google.com/file/d/1hVlE3J7RVUOlWD
 
 1. Make sure you have compiled the code as mentioned above.
 2. Now run command `./Morph.sh`
-3. This script will prompt you to enter Image1 filename and location. (Eg. ../images/BushObama0.0.png)
-4. This script will again prompt yout to enter Image2 filename and location. (Eg. ../images/BushObama1.0.png)
+3. This script will prompt you to enter Image1 filename and location. (Eg. ./images/BO1.png)
+4. This script will again prompt yout to enter Image2 filename and location. (Eg. ./images/BO2.png)
 5. Now this script will open a Java Editor windows, where you need to draw line segments one after the another so highlight features of face.
 6. Now simply close the editor video and let the script automatically do its work.
 7. Once Image Metamorphsis is complete, it will output message on console.
